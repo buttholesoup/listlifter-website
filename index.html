@@ -779,6 +779,35 @@
                 header.classList.remove('scrolled');
             }
         });
+        
+        // Touch swipe support for carousel
+        const carousel = document.querySelector('.carousel');
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, {passive: true});
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swiped left - next slide
+                    moveSlide(1);
+                } else {
+                    // Swiped right - previous slide
+                    moveSlide(-1);
+                }
+            }
+        }
     </script>
 </body>
 </html>

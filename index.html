@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListLifter — Turn Your Email List Into a Media Asset</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            padding: 48px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: #6366f1;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #4f46e5;
+        }
+        
+        /* Form Section */
+        .form-section {
+            padding: 60px 0;
+            background: #fafafa;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-title {
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 32px;
+            color: #1a1a1a;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #444;
+        }
+        
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+        
+        .checkbox-group {
+            margin: 24px 0;
+        }
+        
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        
+        .checkbox-option:hover {
+            border-color: #6366f1;
+        }
+        
+        .checkbox-option input[type="radio"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            accent-color: #6366f1;
+        }
+        
+        .checkbox-option label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        .option-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .option-desc {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        button[type="submit"] {
+            width: 100%;
+            background: #6366f1;
+            color: white;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        button[type="submit"]:hover {
+            background: #4f46e5;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .features-title {
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #1a1a1a;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 24px;
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        
+        .feature h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        
+        .feature p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: #fafafa;
+            border-top: 1px solid #eee;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #1a1a1a;
+        }
+        
+        .steps {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 32px;
+        }
+        
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: #6366f1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+        
+        .step-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        
+        .step-content p {
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .hero {
+                padding: 60px 0 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">List<span>Lifter</span></div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Unlock Hidden Value in Hyper-Local Subscribers</h1>
+            <p class="subtitle">Target your ideal customers with precision. We revive dormant email lists and turn them into revenue-generating media assets—without you lifting a finger.</p>
+            <a href="#contact" class="cta-button">Learn More</a>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2 class="features-title">Why Local Businesses Choose ListLifter</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Hyper-Local Targeting</h3>
+                    <p>Reach customers within blocks of your business. Our newsletters connect local businesses with engaged, nearby audiences who actually buy.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <h3>Recover Lost Revenue</h3>
+                    <p>Your email list is sitting dormant. We activate it, monetize it through local advertising, and share the revenue with you—at zero cost.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✅</div>
+                    <h3>Verified & Compliant</h3>
+                    <p>30-40% open rates. CAN-SPAM compliant. Professional templates. We handle everything from content to deliverability to advertiser management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>We Take Over Your Newsletter</h3>
+                        <p>You keep your email list—we operate it. Weekly professional newsletters with curated local content featuring your business.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>We Sell Ad Space to Local Businesses</h3>
+                        <p>We find non-competing local advertisers (restaurants, shops, services) and sell ad slots in your newsletter at premium CPMs.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>You Get Free Marketing + Revenue Share</h3>
+                        <p>Your business gets featured in every email. Plus, you earn a share of ad revenue—turning a dormant list into a monthly income stream.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="form-section" id="contact">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Get Started with ListLifter</h2>
+                <form action="mailto:emma@listlifter.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>How can we help you?</label>
+                        <div class="checkbox-option">
+                            <input type="radio" id="business" name="type" value="business" required>
+                            <label for="business">
+                                <span class="option-title">I have an email list to activate</span>
+                                <span class="option-desc">You're a local business with a dormant subscriber list</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="radio" id="advertiser" name="type" value="advertiser">
+                            <label for="advertiser">
+                                <span class="option-title">I want to advertise locally</span>
+                                <span class="option-desc">You're a business looking to reach local customers</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ListLifter. Building local media, one newsletter at a time.</p>
+        </div>
+    </footer>
+</body>
+</html>

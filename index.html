@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ListLifter — Turn Your Email List Into a Media Asset</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <style>
         * {
             margin: 0;
@@ -47,16 +48,16 @@
             position: absolute;
             top: 20px;
             right: 5%;
-            width: 180px;
-            height: 180px;
-            opacity: 0.15;
-            transform: rotate(-15deg);
+            width: 200px;
+            height: 200px;
+            opacity: 0.9;
         }
         
         .hero-arrow img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
         }
         
         @media (max-width: 768px) {
@@ -559,8 +560,10 @@
     
     <section class="hero">
         <div class="hero-arrow">
+            <!-- TODO: Replace with yellow arrows extracted from logo -->
             <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M100 20L180 100L100 180L100 140L60 140L60 60L100 60L100 20Z" fill="#6366f1"/>
+                <path d="M40 100L100 40L160 100L130 100L130 140L70 140L70 100L40 100Z" fill="#FFD700"/>
+                <path d="M60 160L100 120L140 160L120 160L120 180L80 180L80 160L60 160Z" fill="#FFA500"/>
             </svg>
         </div>
         <div class="container">
@@ -644,8 +647,9 @@
     
     <section class="social-proof">
         <div class="container">
-            <h2>Already Activating Lists For</h2>
+            <h2>Currently Activating</h2>
             <div class="client-logos">
+                <!-- TODO: Replace with black & white logos -->
                 <div class="client-logo">StretchLab</div>
                 <div class="client-logo">BFT</div>
                 <div class="client-logo">Studio 7</div>

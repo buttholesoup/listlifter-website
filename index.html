@@ -38,10 +38,14 @@
         
         /* Hero */
         .hero {
-            padding: 60px 0 80px;
+            padding: 100px 0 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(rgba(99, 102, 241, 0.85), rgba(118, 75, 162, 0.85)), url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
         }
         
         .hero-arrow {
@@ -69,22 +73,24 @@
             }
         }
         
-        h1 {
+        .hero h1 {
             font-size: 48px;
             font-weight: 800;
             line-height: 1.1;
-            color: #1a1a1a;
+            color: white;
             margin-bottom: 24px;
             letter-spacing: -1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
-        .subtitle {
+        .hero .subtitle {
             font-size: 21px;
-            color: #555;
+            color: rgba(255,255,255,0.95);
             max-width: 650px;
             margin: 0 auto 40px;
             line-height: 1.5;
             font-weight: 400;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
         
         .hero-stats {
@@ -99,18 +105,28 @@
             text-align: center;
         }
         
-        .stat-number {
+        .hero .stat-number {
             font-size: 36px;
             font-weight: 700;
-            color: #6366f1;
+            color: #FFD700;
             display: block;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
-        .stat-label {
+        .hero .stat-label {
             font-size: 14px;
-            color: #666;
+            color: rgba(255,255,255,0.9);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
         }
         
         /* CTA Button */

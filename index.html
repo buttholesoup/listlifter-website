@@ -588,7 +588,7 @@
                 </div>
             </div>
             
-            <a href="#contact" class="cta-button">Let's Talk</a>
+            <a href="#contact" class="cta-button" id="confettiBtn">Let's Talk</a>
         </div>
     </section>
     
@@ -806,6 +806,66 @@
                     // Swiped right - previous slide
                     moveSlide(-1);
                 }
+            }
+        }
+        
+        // Confetti effect for CTA button
+        const confettiBtn = document.getElementById('confettiBtn');
+        confettiBtn.addEventListener('click', (e) => {
+            createConfetti(e.clientX, e.clientY);
+        });
+        
+        function createConfetti(x, y) {
+            const colors = ['#6366f1', '#8b5cf6', '#FFD700', '#FFA500', '#ff6b6b', '#4ecdc4'];
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.width = Math.random() * 10 + 5 + 'px';
+                particle.style.height = Math.random() * 10 + 5 + 'px';
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '9999';
+                document.body.appendChild(particle);
+                
+                const angle = (Math.PI * 2 * i) / particleCount;
+                const velocity = Math.random() * 150 + 100;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity - 100;
+                
+                let posX = x;
+                let posY = y;
+                let velX = vx;
+                let velY = vy;
+                let opacity = 1;
+                let rotation = Math.random() * 360;
+                let rotationSpeed = (Math.random() - 0.5) * 20;
+                
+                const animate = () => {
+                    velY += 5; // gravity
+                    velX *= 0.98; // air resistance
+                    posX += velX * 0.016;
+                    posY += velY * 0.016;
+                    rotation += rotationSpeed;
+                    opacity -= 0.015;
+                    
+                    particle.style.left = posX + 'px';
+                    particle.style.top = posY + 'px';
+                    particle.style.opacity = opacity;
+                    particle.style.transform = `rotate(${rotation}deg)`;
+                    
+                    if (opacity > 0) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        particle.remove();
+                    }
+                };
+                
+                requestAnimationFrame(animate);
             }
         }
     </script>

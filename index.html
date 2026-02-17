@@ -38,36 +38,30 @@
         
         /* Hero */
         .hero {
-            padding: 60px 0 80px;
+            padding: 100px 0 80px;
             text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             position: relative;
-            overflow: hidden;
         }
         
-        .hero-arrow {
-            position: absolute;
-            top: 20px;
-            right: 5%;
-            width: 200px;
-            height: 200px;
-            opacity: 0.9;
+        .hero h1 {
+            color: white;
         }
         
-        .hero-arrow img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+        .hero .subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .hero .stat-number {
+            color: #FFD700;
+        }
+        
+        .hero .stat-label {
+            color: rgba(255,255,255,0.8);
         }
         
         @media (max-width: 768px) {
-            .hero-arrow {
-                width: 120px;
-                height: 120px;
-                top: 40px;
-                right: -20px;
-            }
-        }
         
         h1 {
             font-size: 48px;
@@ -341,32 +335,46 @@
         
         /* Social Proof */
         .social-proof {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 60px 0;
+            background: #1a1a2e;
             color: white;
             text-align: center;
         }
         
         .social-proof h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 40px;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: rgba(255,255,255,0.9);
         }
         
         .client-logos {
             display: flex;
             justify-content: center;
-            gap: 48px;
+            align-items: center;
+            gap: 40px;
             flex-wrap: wrap;
-            opacity: 0.9;
         }
         
-        .client-logo {
-            font-size: 20px;
-            font-weight: 600;
-            padding: 16px 24px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
+        .client-logos img {
+            max-height: 50px;
+            width: auto;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+        
+        .client-logos img:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .client-logos {
+                gap: 24px;
+            }
+            
+            .client-logos img {
+                max-height: 40px;
+            }
         }
         
         /* Form Section */
